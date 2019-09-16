@@ -3665,7 +3665,6 @@ __webpack_require__.r(__webpack_exports__);
       books: [],
       editorials: [],
       authors: [],
-      baseUrl: "/libreria/public/",
       newBook: new FormData(),
       newBookData: {
         name: null,
@@ -3706,14 +3705,14 @@ __webpack_require__.r(__webpack_exports__);
     getEditorials: function getEditorials() {
       var _this = this;
 
-      axios.get(this.baseUrl + 'getEditorials').then(function (response) {
+      axios.get('getEditorials').then(function (response) {
         _this.editorials = response.data;
       });
     },
     getAuthors: function getAuthors() {
       var _this2 = this;
 
-      axios.get(this.baseUrl + 'getAuthors').then(function (response) {
+      axios.get('getAuthors').then(function (response) {
         _this2.authors = response.data;
       });
     },
@@ -3767,7 +3766,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this4 = this;
 
       this.loadingBookList = true;
-      axios.get(this.baseUrl + "loadBooks", {
+      axios.get("loadBooks", {
         params: {
           size: this.size,
           currentPage: this.currentPage,
@@ -3816,7 +3815,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this6 = this;
 
       this.loadingSuggestions = true;
-      axios.get(this.baseUrl + "textFilter/" + queryString).then(function (response) {
+      axios.get("textFilter/" + queryString).then(function (response) {
         _this6.suggestions = response.data;
         _this6.loadingSuggestions = false;
       });

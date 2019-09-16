@@ -198,7 +198,6 @@ export default {
             books:[],
             editorials:[],
             authors:[],
-            baseUrl: "/libreria/public/",
             newBook: new FormData(),
             newBookData:{
                 name: null,
@@ -238,13 +237,13 @@ export default {
     methods: {
         getEditorials()
         {
-            axios.get(this.baseUrl + 'getEditorials').then(response =>{
+            axios.get('getEditorials').then(response =>{
                 this.editorials = response.data;
             });
         },
         getAuthors()
         {
-            axios.get(this.baseUrl + 'getAuthors').then(response =>{
+            axios.get('getAuthors').then(response =>{
                 this.authors = response.data;
             });
         },
@@ -306,7 +305,7 @@ export default {
         loadBooks()
         {
             this.loadingBookList = true;
-            axios.get(this.baseUrl + "loadBooks", {
+            axios.get("loadBooks", {
                 params:{
                     size : this.size,
                     currentPage : this.currentPage,
@@ -357,7 +356,7 @@ export default {
          getSuggestions(queryString, cb)
         {
             this.loadingSuggestions = true;
-            axios.get(this.baseUrl + "textFilter/" + queryString).then(response =>{
+            axios.get("textFilter/" + queryString).then(response =>{
                 this.suggestions = response.data;
                 this.loadingSuggestions = false;
             });
